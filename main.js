@@ -57,6 +57,11 @@ io.on("connection", (socket) => {
   console.log("Envío de datos por el socket " + socket.id);
   console.log("Interfaz de " + socket.id + " conectada.\n");
 
+  socket.on("sendChar", (char) => {
+    console.log("Opción seleccionada: " + char);
+    port.write(char);
+  });
+
   socket.on("disconnect", () => {
     console.log("Interfaz de " + socket.id + " desconectada.\n");
   });
